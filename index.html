@@ -1056,6 +1056,80 @@
       width: 18px; height: 18px; border-radius: 50%;
       background: white;
     }
+
+    /* ── SCROLL SPINE (φωτεινή γραμμή που ακολουθεί το scroll) ── */
+    .scroll-spine {
+      position: fixed;
+      right: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 62vh;
+      width: 2px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.07);
+      z-index: 90;
+    }
+    @media (max-width: 900px) { .scroll-spine { display: none; } }
+
+    .spine-fill {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--blue-light), var(--violet));
+      box-shadow: 0 0 12px rgba(96,165,250,0.55);
+      transform-origin: top;
+      transform: scaleY(0);
+    }
+
+    .spine-comet {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, var(--blue-light) 45%, rgba(96,165,250,0) 75%);
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 0 8px rgba(96,165,250,0.95));
+      animation: comet-pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes comet-pulse {
+      0%, 100% { scale: 1; }
+      50%      { scale: 1.45; }
+    }
+
+    .spine-dot {
+      position: absolute;
+      left: 50%;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.18);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.4s, box-shadow 0.4s, scale 0.25s;
+    }
+    .spine-dot:hover { scale: 1.8; }
+    .spine-dot.lit {
+      background: var(--blue-light);
+      box-shadow: 0 0 8px rgba(96,165,250,0.8);
+    }
+    .spine-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+    .spine-dot:hover::after { opacity: 1; }
   </style>
 </head>
 <body>
@@ -1074,6 +1148,12 @@
     <div class="firefly"></div>
     <div class="shooting-star"></div>
     <div class="shooting-star"></div>
+  </div>
+
+  <!-- Scroll spine — φωτεινή γραμμή-συνοδός του scroll -->
+  <div class="scroll-spine" id="scrollSpine">
+    <div class="spine-fill" id="spineFill"></div>
+    <div class="spine-comet" id="spineComet"></div>
   </div>
 
   <div class="page">
@@ -1351,7 +1431,7 @@
     </section>
 
     <!-- FRIEND FEATURE -->
-    <section class="friend-section">
+    <section class="friend-section" id="social">
       <div class="friend-card scroll-reveal">
         <div>
           <span class="new-badge">Social</span>
@@ -1593,6 +1673,70 @@
         }
       });
     });
+    // ── Scroll spine: φωτεινή γραμμή + κομήτης + section dots ──
+    const spine      = document.getElementById('scrollSpine');
+    const spineFill  = document.getElementById('spineFill');
+    const spineComet = document.getElementById('spineComet');
+    const spineSections = [
+      { id: 'features',    label: 'Features'    },
+      { id: 'soundscapes', label: 'Soundscapes' },
+      { id: 'social',      label: 'Social'      },
+      { id: 'pricing',     label: 'Pricing'     },
+    ];
+    const spineDots = [];
+
+    const spineMax = () =>
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    // Κουκκίδα ανά section: θέση = το σημείο του scroll όπου "φτάνεις" εκεί
+    function positionSpineDots() {
+      const max = spineMax();
+      if (max <= 0) return;
+      spineDots.forEach(({ dot, el }) => {
+        const p = Math.min(Math.max(
+          (el.offsetTop - window.innerHeight * 0.35) / max, 0), 1);
+        dot.style.top = (p * 100) + '%';
+        dot.dataset.p = p;
+      });
+    }
+
+    spineSections.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (!el) return;
+      const dot = document.createElement('button');
+      dot.className = 'spine-dot';
+      dot.dataset.label = s.label;
+      dot.setAttribute('aria-label', 'Scroll to ' + s.label);
+      dot.addEventListener('click', () =>
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      spine.appendChild(dot);
+      spineDots.push({ dot, el });
+    });
+
+    let spineTicking = false;
+    function updateSpine() {
+      spineTicking = false;
+      const max = spineMax();
+      const p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      spineFill.style.transform = 'scaleY(' + p + ')';
+      spineComet.style.top = (p * 100) + '%';
+      spineDots.forEach(({ dot }) => {
+        dot.classList.toggle('lit', p >= parseFloat(dot.dataset.p || '1') - 0.002);
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!spineTicking) {
+        spineTicking = true;
+        requestAnimationFrame(updateSpine);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', () => { positionSpineDots(); updateSpine(); });
+    // Recompute after full load — lazy screenshots change the page height
+    window.addEventListener('load',   () => { positionSpineDots(); updateSpine(); });
+
+    positionSpineDots();
+    updateSpine();
   </script>
 
 </body>
