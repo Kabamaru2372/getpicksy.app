@@ -275,25 +275,16 @@
       position: relative;
     }
 
-    .screenshots-wrap::before,
-    .screenshots-wrap::after {
-      content: '';
+    /* Gradual blur edges — screenshots carousel */
+    .gb-edge {
       position: absolute;
       top: 0; bottom: 0;
       width: 120px;
       z-index: 2;
       pointer-events: none;
     }
-
-    .screenshots-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, var(--dark), transparent);
-    }
-
-    .screenshots-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, var(--dark), transparent);
-    }
+    .gb-left  { left: 0;  background: linear-gradient(to right, var(--dark) 8%, transparent); }
+    .gb-right { right: 0; background: linear-gradient(to left,  var(--dark) 8%, transparent); }
 
     .screenshots {
       display: flex;
@@ -1199,6 +1190,8 @@
 
     <!-- SCREENSHOTS -->
     <div class="screenshots-wrap reveal" style="transition-delay:0.4s">
+      <div class="gb-edge gb-left"  id="gbLeft"></div>
+      <div class="gb-edge gb-right" id="gbRight"></div>
       <div class="screenshots" id="screenshots">
         <img src="/picksy-new-1.jpg" alt="Picksy — Use your phone less. For real." draggable="false" loading="lazy">
         <img src="/picksy-new-2.jpg" alt="Picksy — Apps lock when you hit your limit." draggable="false" loading="lazy">
@@ -1737,6 +1730,34 @@
 
     positionSpineDots();
     updateSpine();
+
+    // ── Gradual blur edges (screenshots carousel) ─────────────────
+    (function() {
+      function initGradualBlur(el, position, strength, count) {
+        if (!el || !CSS.supports('backdrop-filter', 'blur(1px)')) return;
+        const dir = { left:'to left', right:'to right', top:'to top', bottom:'to bottom' }[position];
+        const inc = 100 / count;
+        for (let i = 1; i <= count; i++) {
+          const t = i / count;
+          const blur = (Math.pow(2, t * 3.5) - 1) / (Math.pow(2, 3.5) - 1) * strength;
+          const p1 = ((i - 1) * inc).toFixed(1);
+          const p2 = (i       * inc).toFixed(1);
+          const p3 = Math.min(100, (i + 1) * inc).toFixed(1);
+          const p4 = Math.min(100, (i + 2) * inc).toFixed(1);
+          let grad = `transparent ${p1}%, black ${p2}%`;
+          if (+p3 <= 100) grad += `, black ${p3}%`;
+          if (+p4 <= 100) grad += `, transparent ${p4}%`;
+          const layer = document.createElement('div');
+          layer.style.cssText =
+            'position:absolute;inset:0;' +
+            `backdrop-filter:blur(${blur.toFixed(2)}px);-webkit-backdrop-filter:blur(${blur.toFixed(2)}px);` +
+            `mask-image:linear-gradient(${dir},${grad});-webkit-mask-image:linear-gradient(${dir},${grad});`;
+          el.appendChild(layer);
+        }
+      }
+      initGradualBlur(document.getElementById('gbLeft'),  'left',  8, 5);
+      initGradualBlur(document.getElementById('gbRight'), 'right', 8, 5);
+    })();
   </script>
 
 </body>
