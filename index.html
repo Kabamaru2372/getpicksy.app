@@ -7,6 +7,7 @@
   <meta name="description" content="Picksy tracks how many times you pick up your phone, shows you the patterns, plays calming soundscapes that match the weather, and helps you, and your friends, use it less. Free for iPhone.">
   <meta property="og:title" content="Picksy: Be Present">
   <meta property="og:description" content="Track phone pickups. Break the habit. Listen to the rain. Be present.">
+  <link rel="icon" href="/picksy-icon.png">
   <link href="/fonts/fonts.css" rel="stylesheet">
 
   <style>
@@ -110,12 +111,9 @@
 
     .nav-logo-icon {
       width: 32px; height: 32px;
-      background: linear-gradient(135deg, var(--copper), var(--teal));
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
+      object-fit: cover;
+      flex-shrink: 0;
     }
 
     .nav-links { display: flex; align-items: center; gap: 28px; }
@@ -1151,7 +1149,7 @@
     <!-- NAV -->
     <nav>
       <a class="nav-logo" href="/">
-        <div class="nav-logo-icon">📱</div>
+        <img class="nav-logo-icon" src="/picksy-icon.png" alt="Picksy app icon">
         Picksy
       </a>
       <div class="nav-links">
