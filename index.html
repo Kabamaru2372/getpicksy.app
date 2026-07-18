@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Picksy: Be Present — Phone Pickup Tracker</title>
-  <meta name="description" content="Picksy tracks how many times you pick up your phone, shows you the patterns, plays calming soundscapes that match the weather, and helps you — and your friends — use it less. Free for iPhone.">
+  <title>Picksy: Be Present (Phone Pickup Tracker)</title>
+  <meta name="description" content="Picksy tracks how many times you pick up your phone, shows you the patterns, plays calming soundscapes that match the weather, and helps you, and your friends, use it less. Free for iPhone.">
   <meta property="og:title" content="Picksy: Be Present">
   <meta property="og:description" content="Track phone pickups. Break the habit. Listen to the rain. Be present.">
   <link href="/fonts/fonts.css" rel="stylesheet">
@@ -13,14 +13,14 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --blue:        #2563eb;
-      --blue-light:  #60a5fa;
-      --violet:      #7c3aed;
-      --dark:        #080812;
-      --dark2:       #111122;
-      --dark3:       #181830;
-      --text:        #f0f0ff;
-      --muted:       #8888aa;
+      --copper:        #c1652f;
+      --copper-light:  #e0975a;
+      --teal:      #14746e;
+      --dark:        #0d0a08;
+      --dark2:       #1a1512;
+      --dark3:       #241d16;
+      --text:        #f2efe8;
+      --muted:       #8a8578;
       --border:      rgba(255,255,255,0.07);
     }
 
@@ -52,14 +52,14 @@
 
     .aurora-blob:nth-child(1) {
       width: 700px; height: 700px;
-      background: var(--blue);
+      background: var(--copper);
       top: -200px; left: -150px;
       animation-duration: 28s;
     }
 
     .aurora-blob:nth-child(2) {
       width: 500px; height: 500px;
-      background: var(--violet);
+      background: var(--teal);
       top: 10%; right: -100px;
       animation-duration: 22s;
       animation-delay: -8s;
@@ -67,7 +67,7 @@
 
     .aurora-blob:nth-child(3) {
       width: 400px; height: 400px;
-      background: #0ea5e9;
+      background: #d9a441;
       bottom: 20%; left: 30%;
       animation-duration: 35s;
       animation-delay: -15s;
@@ -92,7 +92,7 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: rgba(8,8,18,0.75);
+      background: rgba(13,10,8,0.75);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       z-index: 100;
@@ -110,7 +110,7 @@
 
     .nav-logo-icon {
       width: 32px; height: 32px;
-      background: linear-gradient(135deg, var(--blue), var(--violet));
+      background: linear-gradient(135deg, var(--copper), var(--teal));
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -132,7 +132,7 @@
 
     .nav-cta {
       padding: 8px 18px;
-      background: var(--blue);
+      background: var(--copper);
       color: white;
       font-size: 14px;
       font-weight: 600;
@@ -169,19 +169,19 @@
       align-items: center;
       gap: 8px;
       padding: 7px 16px;
-      background: rgba(37,99,235,0.12);
-      border: 1px solid rgba(96,165,250,0.25);
+      background: rgba(193,101,47,0.12);
+      border: 1px solid rgba(224,151,90,0.25);
       border-radius: 100px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--blue-light);
+      color: var(--copper-light);
       margin-bottom: 28px;
       letter-spacing: 0.02em;
     }
 
     .hero-badge-dot {
       width: 7px; height: 7px;
-      background: var(--blue-light);
+      background: var(--copper-light);
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
     }
@@ -200,7 +200,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, var(--blue-light) 0%, #a78bfa 60%, #f472b6 100%);
+      background: linear-gradient(135deg, var(--copper-light) 0%, #d68a4c 60%, #b8562e 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -227,20 +227,20 @@
       align-items: center;
       gap: 9px;
       padding: 15px 30px;
-      background: var(--blue);
+      background: var(--copper);
       color: white;
       font-size: 16px;
       font-weight: 700;
       border-radius: 14px;
       text-decoration: none;
       transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 32px rgba(37,99,235,0.35);
+      box-shadow: 0 0 32px rgba(193,101,47,0.35);
     }
 
     .btn-primary:hover {
       opacity: 0.88;
       transform: translateY(-2px);
-      box-shadow: 0 8px 40px rgba(37,99,235,0.5);
+      box-shadow: 0 8px 40px rgba(193,101,47,0.5);
     }
 
     .btn-ghost {
@@ -324,7 +324,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--blue-light);
+      color: var(--copper-light);
       margin-bottom: 12px;
       display: block;
     }
@@ -394,7 +394,7 @@
     }
 
     .card-wrapper:hover .card-front {
-      border-color: rgba(96,165,250,0.3);
+      border-color: rgba(224,151,90,0.3);
     }
 
     /* Glow that follows cursor — set via JS */
@@ -405,7 +405,7 @@
       border-radius: 20px;
       background: radial-gradient(
         circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(96,165,250,0.1) 0%,
+        rgba(224,151,90,0.1) 0%,
         transparent 65%
       );
       opacity: 0;
@@ -417,8 +417,8 @@
 
     /* BACK */
     .card-back {
-      background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(124,58,237,0.1));
-      border: 1px solid rgba(96,165,250,0.3);
+      background: linear-gradient(135deg, rgba(193,101,47,0.15), rgba(20,116,110,0.1));
+      border: 1px solid rgba(224,151,90,0.3);
       transform: rotateY(180deg);
       display: flex;
       flex-direction: column;
@@ -440,7 +440,7 @@
     }
 
     .card-back-fact strong {
-      color: var(--blue-light);
+      color: var(--copper-light);
       display: block;
       font-size: 22px;
       font-weight: 800;
@@ -459,7 +459,7 @@
       bottom: 14px;
       right: 16px;
       font-size: 11px;
-      color: #3d3d55;
+      color: #4a4038;
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -493,8 +493,8 @@
     }
 
     .friend-card {
-      background: linear-gradient(140deg, rgba(37,99,235,0.1) 0%, rgba(124,58,237,0.06) 100%);
-      border: 1px solid rgba(96,165,250,0.2);
+      background: linear-gradient(140deg, rgba(193,101,47,0.1) 0%, rgba(20,116,110,0.06) 100%);
+      border: 1px solid rgba(224,151,90,0.2);
       border-radius: 28px;
       padding: 52px 48px;
       display: grid;
@@ -514,7 +514,7 @@
       position: absolute;
       top: -80px; right: -80px;
       width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(96,165,250,0.12), transparent 70%);
+      background: radial-gradient(circle, rgba(224,151,90,0.12), transparent 70%);
       pointer-events: none;
     }
 
@@ -523,19 +523,19 @@
       position: absolute;
       bottom: -60px; left: -60px;
       width: 250px; height: 250px;
-      background: radial-gradient(circle, rgba(124,58,237,0.1), transparent 70%);
+      background: radial-gradient(circle, rgba(20,116,110,0.1), transparent 70%);
       pointer-events: none;
     }
 
     .new-badge {
       display: inline-block;
       padding: 5px 12px;
-      background: rgba(37,99,235,0.18);
-      border: 1px solid rgba(96,165,250,0.3);
+      background: rgba(193,101,47,0.18);
+      border: 1px solid rgba(224,151,90,0.3);
       border-radius: 100px;
       font-size: 11px;
       font-weight: 700;
-      color: var(--blue-light);
+      color: var(--copper-light);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 18px;
@@ -577,12 +577,12 @@
 
     .flow-step:hover {
       background: rgba(255,255,255,0.05);
-      border-color: rgba(96,165,250,0.2);
+      border-color: rgba(224,151,90,0.2);
     }
 
     .step-num {
       width: 26px; height: 26px;
-      background: linear-gradient(135deg, var(--blue), var(--violet));
+      background: linear-gradient(135deg, var(--copper), var(--teal));
       border-radius: 7px;
       display: flex;
       align-items: center;
@@ -622,7 +622,7 @@
 
     .notif-icon {
       width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--blue), var(--violet));
+      background: linear-gradient(135deg, var(--copper), var(--teal));
       border-radius: 9px;
       display: flex;
       align-items: center;
@@ -666,7 +666,7 @@
     .pulse-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--blue-light);
+      background: var(--copper-light);
       animation: pulse-wave 1.4s ease-in-out infinite;
     }
 
@@ -705,16 +705,16 @@
     }
 
     .pricing-card.pro {
-      background: linear-gradient(140deg, rgba(37,99,235,0.1), rgba(124,58,237,0.07));
-      border-color: rgba(96,165,250,0.3);
-      box-shadow: 0 0 60px rgba(37,99,235,0.12);
+      background: linear-gradient(140deg, rgba(193,101,47,0.1), rgba(20,116,110,0.07));
+      border-color: rgba(224,151,90,0.3);
+      box-shadow: 0 0 60px rgba(193,101,47,0.12);
     }
 
     .pricing-badge {
       position: absolute;
       top: -12px; left: 50%; transform: translateX(-50%);
       padding: 5px 14px;
-      background: linear-gradient(135deg, var(--blue), var(--violet));
+      background: linear-gradient(135deg, var(--copper), var(--teal));
       border-radius: 100px;
       font-size: 11px;
       font-weight: 700;
@@ -779,8 +779,8 @@
       flex-shrink: 0;
     }
 
-    .check.yes { background: rgba(37,99,235,0.2); color: var(--blue-light); }
-    .check.no  { background: rgba(255,255,255,0.04); color: #3d3d55; }
+    .check.yes { background: rgba(193,101,47,0.2); color: var(--copper-light); }
+    .check.no  { background: rgba(255,255,255,0.04); color: #4a4038; }
 
     .plan-btn {
       display: block;
@@ -795,9 +795,9 @@
     }
 
     .plan-btn.primary {
-      background: var(--blue);
+      background: var(--copper);
       color: white;
-      box-shadow: 0 4px 24px rgba(37,99,235,0.35);
+      box-shadow: 0 4px 24px rgba(193,101,47,0.35);
     }
 
     .plan-btn.primary:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -859,7 +859,7 @@
 
     footer p, footer a {
       font-size: 13px;
-      color: #3d3d55;
+      color: #4a4038;
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -938,8 +938,8 @@
     .sound-section { padding: 50px 40px 90px; max-width: 1140px; margin: 0 auto; }
 
     .sound-card {
-      background: linear-gradient(140deg, rgba(14,165,233,0.10) 0%, rgba(124,58,237,0.07) 100%);
-      border: 1px solid rgba(56,189,248,0.22);
+      background: linear-gradient(140deg, rgba(14,165,233,0.10) 0%, rgba(20,116,110,0.07) 100%);
+      border: 1px solid rgba(217,164,65,0.22);
       border-radius: 28px;
       padding: 52px 48px;
       display: grid;
@@ -967,8 +967,8 @@
 
     /* Player mockup with live equalizer + falling rain */
     .player-mock {
-      background: rgba(8,8,18,0.55);
-      border: 1px solid rgba(96,165,250,0.25);
+      background: rgba(13,10,8,0.55);
+      border: 1px solid rgba(224,151,90,0.25);
       border-radius: 22px;
       padding: 26px 24px;
       position: relative;
@@ -978,7 +978,7 @@
     .player-row { display: flex; align-items: center; gap: 14px; position: relative; z-index: 2; }
     .player-art {
       width: 52px; height: 52px; border-radius: 14px;
-      background: linear-gradient(135deg, #0ea5e9, #7c3aed);
+      background: linear-gradient(135deg, #d9a441, #14746e);
       display: flex; align-items: center; justify-content: center;
       font-size: 24px;
       flex-shrink: 0;
@@ -989,7 +989,7 @@
     .eq { display: flex; align-items: flex-end; gap: 3px; height: 26px; margin-left: auto; }
     .eq span {
       width: 4px; border-radius: 2px;
-      background: linear-gradient(180deg, #60a5fa, #38bdf8);
+      background: linear-gradient(180deg, #e0975a, #e8b478);
       animation: eq-bounce 1.1s ease-in-out infinite;
     }
     .eq span:nth-child(1) { height: 40%; animation-delay: 0s;    }
@@ -1007,7 +1007,7 @@
       position: absolute;
       top: -20px;
       width: 1.5px; height: 14px;
-      background: linear-gradient(180deg, rgba(96,165,250,0) 0%, rgba(96,165,250,0.5) 100%);
+      background: linear-gradient(180deg, rgba(224,151,90,0) 0%, rgba(224,151,90,0.5) 100%);
       animation: rain-fall 1.4s linear infinite;
     }
     .rain-layer i:nth-child(1) { left: 8%;  animation-delay: 0s;    }
@@ -1028,15 +1028,15 @@
       margin-top: 18px;
       padding: 13px 16px;
       border-radius: 14px;
-      background: rgba(56,189,248,0.08);
-      border: 1px solid rgba(56,189,248,0.18);
+      background: rgba(217,164,65,0.08);
+      border: 1px solid rgba(217,164,65,0.18);
       font-size: 13.5px;
       position: relative; z-index: 2;
     }
     .weather-match-row .toggle {
       margin-left: auto;
       width: 40px; height: 24px; border-radius: 100px;
-      background: linear-gradient(135deg, #0ea5e9, #7c3aed);
+      background: linear-gradient(135deg, #d9a441, #14746e);
       position: relative; flex-shrink: 0;
     }
     .weather-match-row .toggle::after {
@@ -1066,8 +1066,8 @@
       top: 0; left: 0; right: 0;
       height: 100%;
       border-radius: 2px;
-      background: linear-gradient(180deg, var(--blue-light), var(--violet));
-      box-shadow: 0 0 12px rgba(96,165,250,0.55);
+      background: linear-gradient(180deg, var(--copper-light), var(--teal));
+      box-shadow: 0 0 12px rgba(224,151,90,0.55);
       transform-origin: top;
       transform: scaleY(0);
     }
@@ -1078,9 +1078,9 @@
       top: 0;
       width: 9px; height: 9px;
       border-radius: 50%;
-      background: radial-gradient(circle, #fff 0%, var(--blue-light) 45%, rgba(96,165,250,0) 75%);
+      background: radial-gradient(circle, #fff 0%, var(--copper-light) 45%, rgba(224,151,90,0) 75%);
       transform: translate(-50%, -50%);
-      filter: drop-shadow(0 0 8px rgba(96,165,250,0.95));
+      filter: drop-shadow(0 0 8px rgba(224,151,90,0.95));
       animation: comet-pulse 2.2s ease-in-out infinite;
     }
     @keyframes comet-pulse {
@@ -1102,8 +1102,8 @@
     }
     .spine-dot:hover { scale: 1.8; }
     .spine-dot.lit {
-      background: var(--blue-light);
-      box-shadow: 0 0 8px rgba(96,165,250,0.8);
+      background: var(--copper-light);
+      box-shadow: 0 0 8px rgba(224,151,90,0.8);
     }
     .spine-dot::after {
       content: attr(data-label);
@@ -1183,7 +1183,7 @@
         <a class="btn-ghost" href="#features">See features ↓</a>
       </div>
       <p class="hero-pricing reveal" style="transition-delay:0.4s">
-        Free to download · Unlock heatmap, personality type &amp; duels with <strong>Pro — €4.99</strong> one-time
+        Free to download · Unlock heatmap, personality type &amp; duels with <strong>Pro (€4.99)</strong> one-time
       </p>
     </section>
 
@@ -1192,12 +1192,12 @@
       <div class="gb-edge gb-left"  id="gbLeft"></div>
       <div class="gb-edge gb-right" id="gbRight"></div>
       <div class="screenshots" id="screenshots">
-        <img src="/picksy-new-1.jpg" alt="Picksy — Use your phone less. For real." draggable="false" loading="lazy">
-        <img src="/picksy-new-2.jpg" alt="Picksy — Apps lock when you hit your limit." draggable="false" loading="lazy">
-        <img src="/picksy-new-3.jpg" alt="Picksy — Beat your friends at being present." draggable="false" loading="lazy">
-        <img src="/picksy-new-4.jpg" alt="Picksy — Watch your screen time drop." draggable="false" loading="lazy">
-        <img src="/picksy-new-5.jpg" alt="Picksy — Set their time. Your passcode does the rest." draggable="false" loading="lazy">
-        <img src="/picksy-new-6.jpg" alt="Picksy — Real numbers. No fluff." draggable="false" loading="lazy">
+        <img src="/picksy-new-1.jpg" alt="Picksy: Use your phone less. For real." draggable="false" loading="lazy">
+        <img src="/picksy-new-2.jpg" alt="Picksy: Apps lock when you hit your limit." draggable="false" loading="lazy">
+        <img src="/picksy-new-3.jpg" alt="Picksy: Beat your friends at being present." draggable="false" loading="lazy">
+        <img src="/picksy-new-4.jpg" alt="Picksy: Watch your screen time drop." draggable="false" loading="lazy">
+        <img src="/picksy-new-5.jpg" alt="Picksy: Set their time. Your passcode does the rest." draggable="false" loading="lazy">
+        <img src="/picksy-new-6.jpg" alt="Picksy: Real numbers. No fluff." draggable="false" loading="lazy">
       </div>
     </div>
 
@@ -1207,7 +1207,7 @@
         <span class="section-label">What it does</span>
         <h2 class="section-title">Everything you need<br>to break the habit</h2>
       </div>
-      <p style="text-align:center; font-size:13px; color:#3d3d55; margin-top:-36px; margin-bottom:40px;">Tap a card to learn more</p>
+      <p style="text-align:center; font-size:13px; color:#4a4038; margin-top:-36px; margin-bottom:40px;">Tap a card to learn more</p>
       <div class="grid">
 
         <div class="card-wrapper scroll-reveal delay-1">
@@ -1215,12 +1215,12 @@
             <div class="card-front">
               <span class="feature-icon">🔢</span>
               <div class="feature-title">Counts every pickup</div>
-              <p class="feature-desc">Detects each unlock — no manual logging, no battery drain. Just an accurate count running silently in the background.</p>
+              <p class="feature-desc">Detects each unlock. No manual logging, no battery drain. Just an accurate count running silently in the background.</p>
               <span class="card-hint">tap to flip →</span>
             </div>
             <div class="card-back">
               <span class="card-back-icon">📱</span>
-              <div class="card-back-fact"><strong>96×</strong>The average person picks up their phone 96 times a day — once every 10 minutes.</div>
+              <div class="card-back-fact"><strong>96×</strong>The average person picks up their phone 96 times a day, once every 10 minutes.</div>
               <span class="card-back-tap">tap to flip back</span>
             </div>
           </div>
@@ -1231,12 +1231,12 @@
             <div class="card-front">
               <span class="feature-icon">🏝️</span>
               <div class="feature-title">Dynamic Island & Lock Screen</div>
-              <p class="feature-desc">Your pickups, live in the Dynamic Island and Lock Screen — even when the app is in the background.</p>
+              <p class="feature-desc">Your pickups, live in the Dynamic Island and Lock Screen, even when the app is in the background.</p>
               <span class="card-hint">tap to flip →</span>
             </div>
             <div class="card-back">
               <span class="card-back-icon">👁️</span>
-              <div class="card-back-fact"><strong>Always visible</strong>Picksy shows live data in the Dynamic Island while running silently in the background — one of the very few apps that does this.</div>
+              <div class="card-back-fact"><strong>Always visible</strong>Picksy shows live data in the Dynamic Island while running silently in the background, one of the very few apps that does this.</div>
               <span class="card-back-tap">tap to flip back</span>
             </div>
           </div>
@@ -1279,7 +1279,7 @@
             <div class="card-front">
               <span class="feature-icon">🌤</span>
               <div class="feature-title">Weather-aware</div>
-              <p class="feature-desc">The background shifts with real-time weather outside — a subtle reminder that the world exists beyond the screen.</p>
+              <p class="feature-desc">The background shifts with real-time weather outside, a subtle reminder that the world exists beyond the screen.</p>
               <span class="card-hint">tap to flip →</span>
             </div>
             <div class="card-back">
@@ -1316,7 +1316,7 @@
             </div>
             <div class="card-back">
               <span class="card-back-icon">🏆</span>
-              <div class="card-back-fact"><strong>Duels</strong>Send a duel invite to any connected friend. The live score updates in real time — and the winner gets bragging rights.</div>
+              <div class="card-back-fact"><strong>Duels</strong>Send a duel invite to any connected friend. The live score updates in real time, and the winner gets bragging rights.</div>
               <span class="card-back-tap">tap to flip back</span>
             </div>
           </div>
@@ -1332,7 +1332,7 @@
             </div>
             <div class="card-back">
               <span class="card-back-icon">🧠</span>
-              <div class="card-back-fact"><strong>6 personality types</strong>Detected from your hourly screen time and pickup patterns — no surveys, no guessing. Just your real data.</div>
+              <div class="card-back-fact"><strong>6 personality types</strong>Detected from your hourly screen time and pickup patterns. No surveys, no guessing. Just your real data.</div>
               <span class="card-back-tap">tap to flip back</span>
             </div>
           </div>
@@ -1343,12 +1343,12 @@
             <div class="card-front">
               <span class="feature-icon">🎧</span>
               <div class="feature-title">Ambient soundscapes</div>
-              <p class="feature-desc">Rain, ocean, birdsong or soft noise — playing on with the screen locked, with full lock-screen controls.</p>
+              <p class="feature-desc">Rain, ocean, birdsong or soft noise, playing on with the screen locked, with full lock-screen controls.</p>
               <span class="card-hint">tap to flip →</span>
             </div>
             <div class="card-back">
               <span class="card-back-icon">🎛️</span>
-              <div class="card-back-fact"><strong>0 MB</strong>Every soundscape is synthesized live on your iPhone — no recordings, no downloads, no loops that repeat.</div>
+              <div class="card-back-fact"><strong>0 MB</strong>Every soundscape is synthesized live on your iPhone. No recordings, no downloads, no loops that repeat.</div>
               <span class="card-back-tap">tap to flip back</span>
             </div>
           </div>
@@ -1359,12 +1359,12 @@
             <div class="card-front">
               <span class="feature-icon">✨</span>
               <div class="feature-title">A scene that lives</div>
-              <p class="feature-desc">A breathing sky, birds gliding by day, fireflies and shooting stars at night — your home screen mirrors the real world.</p>
+              <p class="feature-desc">A breathing sky, birds gliding by day, fireflies and shooting stars at night. Your home screen mirrors the real world.</p>
               <span class="card-hint">tap to flip →</span>
             </div>
             <div class="card-back">
               <span class="card-back-icon">🌌</span>
-              <div class="card-back-fact"><strong>Real weather, real time</strong>The landscape follows actual conditions and daylight at your location — sunrise, storms, snow, starry nights.</div>
+              <div class="card-back-fact"><strong>Real weather, real time</strong>The landscape follows actual conditions and daylight at your location: sunrise, storms, snow, starry nights.</div>
               <span class="card-back-tap">tap to flip back</span>
             </div>
           </div>
@@ -1382,7 +1382,7 @@
             Soundscapes that<br>match the world outside
           </h2>
           <p class="lead" style="color:var(--muted); font-size:16px; line-height:1.65;">
-            Rain, ocean waves, birdsong, soft noise — generated live on your iPhone, playing on even when the screen is locked. Flip on <strong>Match the weather</strong> and Picksy listens to the sky: raining outside? You hear rain. Sunny? Birds. Hot summer day? Waves.
+            Rain, ocean waves, birdsong, soft noise, generated live on your iPhone, playing on even when the screen is locked. Flip on <strong>Match the weather</strong> and Picksy listens to the sky: raining outside? You hear rain. Sunny? Birds. Hot summer day? Waves.
           </p>
           <div class="sound-chips">
             <span class="sound-chip">🌧 Rain</span>
@@ -1391,7 +1391,7 @@
             <span class="sound-chip">🎚 Soft &amp; white noise</span>
           </div>
           <p style="font-size:13.5px; color:var(--muted); line-height:1.6;">
-            Plus opt-in fun: a tiny trombone when you sail past your daily goal, a victory fanfare when you win a duel — and a retro game-over when you don't. 🎺
+            Plus opt-in fun: a tiny trombone when you sail past your daily goal, a victory fanfare when you win a duel, and a retro game-over when you don't. 🎺
           </p>
         </div>
 
@@ -1412,11 +1412,11 @@
           </div>
           <div class="weather-match-row">
             <span>🌤</span>
-            <span><strong>Match the weather</strong> — soundscape follows real conditions</span>
+            <span><strong>Match the weather</strong>: soundscape follows real conditions</span>
             <span class="toggle" aria-hidden="true"></span>
           </div>
-          <p style="font-size:12px; color:#3d3d55; margin-top:14px; position:relative; z-index:2;">
-            Keeps playing with the screen locked · Lock-screen controls · 0 MB — synthesized live
+          <p style="font-size:12px; color:#4a4038; margin-top:14px; position:relative; z-index:2;">
+            Keeps playing with the screen locked · Lock-screen controls · 0 MB, synthesized live
           </p>
         </div>
       </div>
@@ -1427,14 +1427,14 @@
       <div class="friend-card scroll-reveal">
         <div>
           <span class="new-badge">Social</span>
-          <h2>Better together —<br>in every way</h2>
+          <h2>Better together,<br>in every way</h2>
           <p class="lead">
             Picksy is the only app that lets you share the struggle with a friend: real-time alerts when you're both spiralling, direct in-app messages, and now live Pickup Duels.
           </p>
           <div class="flow-steps">
             <div class="flow-step">
               <div class="step-num">1</div>
-              <div class="step-text"><strong>Send a challenge link</strong> — one tap from the app, no account needed.</div>
+              <div class="step-text"><strong>Send a challenge link</strong>: one tap from the app, no account needed.</div>
             </div>
             <div class="flow-step">
               <div class="step-num">2</div>
@@ -1442,15 +1442,15 @@
             </div>
             <div class="flow-step">
               <div class="step-num">3</div>
-              <div class="step-text">When <strong>both of you</strong> have 20+ min screen time in the last 2h — you get a nudge simultaneously.</div>
+              <div class="step-text">When <strong>both of you</strong> have 20+ min screen time in the last 2h, you get a nudge simultaneously.</div>
             </div>
             <div class="flow-step">
               <div class="step-num">💬</div>
-              <div class="step-text"><strong>Send messages</strong> directly inside Picksy — no phone number, no social account needed.</div>
+              <div class="step-text"><strong>Send messages</strong> directly inside Picksy. No phone number, no social account needed.</div>
             </div>
             <div class="flow-step">
               <div class="step-num">⚔️</div>
-              <div class="step-text"><strong>Start a Pickup Duel</strong> — live scoreboard, whoever picks up their phone less by midnight wins.</div>
+              <div class="step-text"><strong>Start a Pickup Duel</strong>: live scoreboard, whoever picks up their phone less by midnight wins.</div>
             </div>
           </div>
         </div>
@@ -1474,7 +1474,7 @@
             </div>
           </div>
 
-          <div class="notif-mock scroll-reveal delay-3" style="background:rgba(37,99,235,0.08); border-color:rgba(96,165,250,0.2);">
+          <div class="notif-mock scroll-reveal delay-3" style="background:rgba(193,101,47,0.08); border-color:rgba(224,151,90,0.2);">
             <div class="notif-header">
               <div class="notif-icon">⚔️</div>
               <div>
@@ -1483,10 +1483,10 @@
               <div class="notif-time">now</div>
             </div>
             <div class="notif-title">Maria challenges you!</div>
-            <div class="notif-body">Open Picksy to accept the duel — whoever uses their phone less today wins. 🏆</div>
+            <div class="notif-body">Open Picksy to accept the duel. Whoever uses their phone less today wins. 🏆</div>
           </div>
 
-          <p style="font-size:13px; color:#3d3d55; text-align:center; margin-top:4px; line-height:1.5;">
+          <p style="font-size:13px; color:#4a4038; text-align:center; margin-top:4px; line-height:1.5;">
             Anonymous · No personal data · Remove anytime
           </p>
         </div>
@@ -1540,7 +1540,7 @@
             <li class="included"><span class="check yes">✓</span>⚔️ Pickup Duels with friends</li>
             <li class="included"><span class="check yes">✓</span>All future Pro features</li>
           </ul>
-          <a class="plan-btn primary" href="https://apps.apple.com/de/app/picksy-be-present/id6761116771">Get Pro — €4.99</a>
+          <a class="plan-btn primary" href="https://apps.apple.com/de/app/picksy-be-present/id6761116771">Get Pro (€4.99)</a>
         </div>
 
       </div>
@@ -1550,7 +1550,7 @@
     <!-- PRIVACY -->
     <div class="privacy-strip scroll-reveal">
       <p>
-        <strong>Zero personal data leaves your device.</strong> Friends are identified by random anonymous UUIDs — no names, no emails, no accounts ever. Remove any connection instantly from Settings.
+        <strong>Zero personal data leaves your device.</strong> Friends are identified by random anonymous UUIDs. No names, no emails, no accounts ever. Remove any connection instantly from Settings.
       </p>
     </div>
 
